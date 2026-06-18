@@ -1,6 +1,7 @@
 package com.jjordan.inventario.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -24,8 +25,8 @@ public class ProductoServiceImpl implements ProductoService{
     }
 
     @Override
-    public ProductoEntities getProductoById(Long id) {
-        return productoRepository.findById(id).orElse(null);
+    public Optional<ProductoEntities> getProductoById(Long id) {
+        return productoRepository.findById(id);
     }
 
 }

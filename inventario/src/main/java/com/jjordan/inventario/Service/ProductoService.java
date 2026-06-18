@@ -1,12 +1,13 @@
 package com.jjordan.inventario.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 import com.jjordan.inventario.Entities.ProductoEntities;
 
 public interface ProductoService {
     List<ProductoEntities> getAllProductos();
-    ProductoEntities getProductoById(Long id);
+    Optional<ProductoEntities> getProductoById(Long id);
 
 
 
