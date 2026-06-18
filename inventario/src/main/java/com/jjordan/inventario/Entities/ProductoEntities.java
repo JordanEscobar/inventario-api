@@ -2,6 +2,7 @@ package com.jjordan.inventario.Entities;
 
 import java.util.Date;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -19,6 +20,7 @@ public class ProductoEntities {
     private int precio;
     private int cantidad;
     private boolean estado;
+    @Column(name = "fecha_ingreso")
     private Date fechaCreacion;
 
     public Long getId(){
@@ -67,6 +69,18 @@ public class ProductoEntities {
 
     public void setFechaCreacion(Date fechaCreacion){
         this.fechaCreacion = fechaCreacion;
+    }
+
+    @Override
+    public String toString() {
+        return "ProductoEntities{" +
+                "id=" + id +
+                ", nombre='" + nombre + '\'' +
+                ", precio=" + precio +
+                ", cantidad=" + cantidad +
+                ", estado=" + estado +
+                ", fechaCreacion=" + fechaCreacion +
+                '}';
     }
 
 }
