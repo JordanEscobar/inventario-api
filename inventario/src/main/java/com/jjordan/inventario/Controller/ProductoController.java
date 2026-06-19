@@ -53,6 +53,16 @@ public class ProductoController {
         return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
     }
 
+    @PostMapping("/update/{id}")
+    public ResponseEntity<ProductoEntities> updateProducto(@PathVariable Long id,@RequestBody ProductoEntities producto){
+        ProductoEntities pUpdated = productoService.updateProducto(id, producto);
+        if(pUpdated != null)
+        {
+            return ResponseEntity.ok(pUpdated);
+        }
+        return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
+    }
+
 
 
 

@@ -39,4 +39,18 @@ public class ProductoServiceImpl implements ProductoService{
         productoRepository.deleteById(id);
     }
 
+    @Override
+    public ProductoEntities updateProducto(Long id, ProductoEntities producto) {
+        Optional<ProductoEntities> existeProducto = productoRepository.findById(id);
+        if(existeProducto.isPresent()){
+            ProductoEntities pEditado = existeProducto.get();
+            pEditado.setCantidad(producto.getCantidad());
+            pEditado.setNombre(producto.getNombre());
+            pEditado.setPrecio(producto.getPrecio());
+            pEditado.setEstado(producto.isEstado());
+            return productoRepository.save(pEditado);
+        }
+        return null;
+    }
+
 }
