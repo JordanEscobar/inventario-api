@@ -8,6 +8,7 @@ import com.jjordan.inventario.Entities.ProductoEntities;
 public interface ProductoService {
     List<ProductoEntities> getAllProductos();
     Optional<ProductoEntities> getProductoById(Long id);
+    ProductoEntities saveProducto(ProductoEntities producto);
 
 
 
