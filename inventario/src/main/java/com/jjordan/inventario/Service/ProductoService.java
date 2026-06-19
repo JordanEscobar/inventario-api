@@ -9,6 +9,7 @@ public interface ProductoService {
     List<ProductoEntities> getAllProductos();
     Optional<ProductoEntities> getProductoById(Long id);
     ProductoEntities saveProducto(ProductoEntities producto);
+    void deleteProducto(Long id);
 
 
 
