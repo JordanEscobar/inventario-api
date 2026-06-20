@@ -11,7 +11,7 @@ public interface ProductoService {
     ProductoEntities saveProducto(ProductoEntities producto);
     void deleteProducto(Long id);
     ProductoEntities updateProducto(Long id, ProductoEntities producto);
-    Optional<ProductoEntities> findByNombre(String nombre);
+    List<ProductoEntities> findByNombre(String nombre);
 
 
 

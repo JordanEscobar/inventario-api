@@ -44,12 +44,12 @@ public class ProductoController {
     @GetMapping("/findnombre/{nombre}")
     public ResponseEntity<?> getProductoByNombre(@PathVariable String nombre)
     {
-        Optional<ProductoEntities> producto = productoService.findByNombre(nombre);
-        if(producto.isPresent())
+        List<ProductoEntities> producto = productoService.findByNombre(nombre);
+        if(!producto.isEmpty())
         {
-            return ResponseEntity.ok(producto.get());
+            return ResponseEntity.ok(producto);
         }
-        return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Producto no encontrado por nombre");
+        return ResponseEntity.status(HttpStatus.NOT_FOUND).body("No se encontraron productos por nombre");
     }
 
     @PostMapping("/save")
