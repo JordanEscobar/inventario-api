@@ -41,6 +41,17 @@ public class ProductoController {
         return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Producto no encontrado"); 
     }
 
+    @GetMapping("/findnombre/{nombre}")
+    public ResponseEntity<?> getProductoByNombre(@PathVariable String nombre)
+    {
+        Optional<ProductoEntities> producto = productoService.findByNombre(nombre);
+        if(producto.isPresent())
+        {
+            return ResponseEntity.ok(producto.get());
+        }
+        return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Producto no encontrado por nombre");
+    }
+
     @PostMapping("/save")
     public ResponseEntity<ProductoEntities> saveProducto(@RequestBody ProductoEntities producto){
         ProductoEntities savedProducto = productoService.saveProducto(producto);

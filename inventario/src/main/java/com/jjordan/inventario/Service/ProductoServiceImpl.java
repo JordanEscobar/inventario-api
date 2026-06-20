@@ -53,4 +53,9 @@ public class ProductoServiceImpl implements ProductoService{
         return null;
     }
 
+    @Override
+    public Optional<ProductoEntities> findByNombre(String nombre) {
+        return productoRepository.findByNombreContainingIgnoreCase(nombre);
+    }
+
 }
